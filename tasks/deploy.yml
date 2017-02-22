@@ -18,6 +18,9 @@ params:
   vm_password:
   nginx_ip:
   pcf_sys_domain:
+  pcf_ert_domain:
+  pcf_opsman_admin_username:
+  pcf_opsman_admin_password:
 
 run:
   path: pcf-prometheus-git/tasks/deploy.sh

@@ -4,7 +4,7 @@ azs: ${azs}
 network_name: ${network_name}
 
 nginx:
-  vm_type: small
+  vm_type: micro
   vm_password: ${vm_password}
   static_ips: ${nginx_ip}
   local_properties:
@@ -13,15 +13,15 @@ nginx:
       https_port: 443
 
 grafana:
-  vm_type: small
+  vm_type: micro
   vm_password: ${vm_password}
   persistent_disk_type: 1024
 alertmanager:
-  vm_type: small
+  vm_type: micro
   vm_password: ${vm_password}
   persistent_disk_type: 1024
 prometheus:
-  vm_type: small.cpu
+  vm_type: small
   vm_password: ${vm_password}
   persistent_disk_type: 5120
 
@@ -32,7 +32,8 @@ bosh_exporter:
       client_id: prometheus-bosh
       client_secret: ${prometheus_secret}
     url: https://$(cat om-bosh-creds/director_ip)
-    ca_cert: "$(cat om-bosh-creds/bosh-ca.pem | awk '{printf "%s\\n", $0}')"
+    ca_cert: |
+$(cat om-bosh-creds/bosh-ca.pem | awk '{printf "      %s\n", $0}')
 
 firehose_exporter:
   uaa:
@@ -57,3 +58,10 @@ cf_exporter:
 #     address: CHANGE_ME
 #     username: exporter
 #     password: CHANGE_ME
+
+nats:
+  password: ${nats_password}
+  username: ${nats_username}
+  machines: ${nats_machines}
+
+grafana_route: grafana.${pcf_sys_domain}
