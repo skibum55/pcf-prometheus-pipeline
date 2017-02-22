@@ -15,7 +15,7 @@ params:
   prometheus_secret:
   azs:
   network_name:
-  vm_pass:
+  vm_password:
   nginx_ip:
   pcf_sys_domain:
 
