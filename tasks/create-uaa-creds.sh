@@ -37,7 +37,7 @@ uaa_admin_password=$($CURL --path=/api/v0/deployed/director/credentials/uaa_admi
 
 echo "Logging into BOSH UAA..."
 uaac target https://$director_ip:8443 --skip-ssl-validation
-uaac token owner get login -s $uaa_login_password<<EOF 1>/dev/null
+uaac token owner get login -s $uaa_login_password<<EOF
 admin
 $uaa_admin_password
 EOF
