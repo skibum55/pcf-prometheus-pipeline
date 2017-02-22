@@ -32,7 +32,7 @@ director_id=$($CURL --path=/api/v0/deployed/products | jq -r ".[].guid" | grep p
 director_ip=$($CURL --path=/api/v0/deployed/products/$director_id/static_ips | jq -r .[0].ips[0])
 
 echo "Getting BOSH UAA creds..."
-uaa_login_password=$($CURL --path=/api/v0/deployed/products/$cf_id/credentials/.director.uaa_login_client_credentials | jq -r .credential.value.password)
+uaa_login_password=$($CURL --path=/api/v0/deployed/products/$director_id/credentials/.director.uaa_login_client_credentials | jq -r .credential.value.password)
 uaa_admin_password=$($CURL --path=/api/v0/deployed/director/credentials/uaa_admin_user_credentials | jq -r .credential.value.password)
 
 echo "Logging into BOSH UAA..."
