@@ -11,4 +11,4 @@ $BOSH_USERNAME
 $BOSH_PASSWORD
 EOF
 
-eval "echo \"$(cat tasks/etc/local.yml)\""
+eval "echo \"$(cat pcf-prometheus-git/tasks/etc/local.yml)\""
