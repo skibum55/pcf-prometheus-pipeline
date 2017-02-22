@@ -1,0 +1,23 @@
+---
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: dlapiduz/c0-worker-gcp
+
+inputs:
+- name: om-bosh-creds
+- name: pcf-prometheus-git
+- name: pcf-prometheus-manifest
+
+params:
+  prometheus_secret:
+  azs:
+  network_name:
+  vm_pass:
+  nginx_ip:
+  pcf_sys_domain:
+
+run:
+  path: pcf-prometheus-git/tasks/deploy.sh

@@ -1,0 +1,59 @@
+# replace with `bosh status --uuid`
+director_uuid: $(bosh status --uuid)
+azs: ${azs}
+network_name: ${network_name}
+
+nginx:
+  vm_type: small
+  vm_password: ${vm_password}
+  static_ips: ${nginx_ip}
+  local_properties:
+    ssl_only: false
+    grafana:
+      https_port: 443
+
+grafana:
+  vm_type: small
+  vm_password: ${vm_password}
+  persistent_disk_type: 1024
+alertmanager:
+  vm_type: small
+  vm_password: ${vm_password}
+  persistent_disk_type: 1024
+prometheus:
+  vm_type: small.cpu
+  vm_password: ${vm_password}
+  persistent_disk_type: 5120
+
+bosh_exporter:
+  bosh:
+    uaa:
+      url: https://$(cat om-bosh-creds/director_ip):8443
+      client_id: prometheus-bosh
+      client_secret: ${prometheus_secret}
+    url: https://$(cat om-bosh-creds/director_ip)
+    ca_cert: "$(cat om-bosh-creds/bosh-ca.pem | awk '{printf "%s\\n", $0}')"
+
+firehose_exporter:
+  uaa:
+    url: https://uaa.${pcf_sys_domain}
+    client_id: prometheus-firehose
+    client_secret: ${prometheus_secret}
+  doppler:
+    url: wss://doppler.${pcf_sys_domain}
+  web:
+    port: 9186
+  skip_ssl_verify: true
+
+cf_exporter:
+  cf:
+    api_url: https://api.${pcf_sys_domain}
+    username: prometheus-cf
+    password: ${prometheus_secret}
+  skip_ssl_verify: true
+#
+# mysqld_exporter:
+#   mysql:
+#     address: CHANGE_ME
+#     username: exporter
+#     password: CHANGE_ME
