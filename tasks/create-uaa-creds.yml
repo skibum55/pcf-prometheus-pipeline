@@ -15,6 +15,7 @@ params:
   pcf_opsman_admin_password:
   pcf_sys_domain:
   prometheus_secret:
+  opsman_url:
 
 run:
   path: pcf-prometheus-git/tasks/create-uaa-creds.sh
