@@ -11,17 +11,17 @@ resources:
 - name: pcf-prometheus-git
   type: git
   source:
-    uri: https://github.com/dlapiduz/pcf-prometheus-pipeline.git
+    uri: https://github.com/c0-ops/pcf-prometheus-pipeline.git
     branch: master
 - name: pcf-prometheus-manifest
   type: git
   source:
-    uri: https://github.com/dlapiduz/prometheus-on-PCF.git
+    uri: https://github.com/c0-ops/prometheus-on-PCF.git
     branch: master
 - name: prometheus-release
   type: github-release
   source:
-    user: dlapiduz
+    user: c0-ops
     repository: prometheus-boshrelease
     access_token: {{github_token}}
 - name: om-bosh-creds
