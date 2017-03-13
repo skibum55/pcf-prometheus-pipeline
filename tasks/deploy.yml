@@ -22,6 +22,9 @@ params:
   pcf_opsman_admin_username:
   pcf_opsman_admin_password:
   opsman_url:
+  nats_machines:
+  nats_username:
+  nats_password:
 
 run:
   path: pcf-prometheus-git/tasks/deploy.sh
