@@ -11,6 +11,7 @@ nginx:
     ssl_only: false
     grafana:
       https_port: 443
+      http_port: 80
 
 grafana:
   vm_type: micro
