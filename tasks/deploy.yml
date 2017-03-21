@@ -25,6 +25,7 @@ params:
   nats_machines:
   nats_username:
   nats_password:
+  grafana_admin_password:
 
 run:
   path: pcf-prometheus-git/tasks/deploy.sh
