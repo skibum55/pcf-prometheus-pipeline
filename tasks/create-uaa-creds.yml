@@ -14,7 +14,12 @@ params:
   pcf_opsman_admin_username:
   pcf_opsman_admin_password:
   pcf_sys_domain:
-  prometheus_secret:
+  prometheus_bosh_client:
+  prometheus_bosh_secret:
+  prometheus_firehose_client:
+  prometheus_firehose_secret:
+  prometheus_cf_username:
+  prometheus_cf_password:
   opsman_url:
 
 run:

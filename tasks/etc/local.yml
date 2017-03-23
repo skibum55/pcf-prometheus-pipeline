@@ -31,8 +31,8 @@ bosh_exporter:
   bosh:
     uaa:
       url: https://$(cat om-bosh-creds/director_ip):8443
-      client_id: prometheus-bosh
-      client_secret: ${prometheus_secret}
+      client_id: ${prometheus_bosh_client}
+      client_secret: ${prometheus_bosh_secret}
     url: https://$(cat om-bosh-creds/director_ip)
     ca_cert: |
 $(cat om-bosh-creds/bosh-ca.pem | awk '{printf "      %s\n", $0}')
@@ -40,8 +40,8 @@ $(cat om-bosh-creds/bosh-ca.pem | awk '{printf "      %s\n", $0}')
 firehose_exporter:
   uaa:
     url: https://uaa.${pcf_sys_domain}
-    client_id: prometheus-firehose
-    client_secret: ${prometheus_secret}
+    client_id: ${prometheus_firehose_client}
+    client_secret: ${prometheus_firehose_secret}
   doppler:
     url: wss://doppler.${pcf_sys_domain}
   web:
@@ -51,8 +51,8 @@ firehose_exporter:
 cf_exporter:
   cf:
     api_url: https://api.${pcf_sys_domain}
-    username: prometheus-cf
-    password: ${prometheus_secret}
+    username: ${prometheus_cf_username}
+    password: ${prometheus_cf_password}
   skip_ssl_verify: true
 #
 # mysqld_exporter:

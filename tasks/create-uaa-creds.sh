@@ -17,15 +17,15 @@ uaa_secret=$(echo $uaa_creds | jq -r .credential.value.password)
 echo "Creating Prometheus UAA Client..."
 uaac target https://uaa.${pcf_sys_domain} --skip-ssl-validation
 uaac token client get $uaa_client -s $uaa_secret
-uaac client add prometheus-firehose \
-  --name prometheus-firehose \
-  --secret ${prometheus_secret} \
+uaac client add ${prometheus_firehose_client} \
+  --name ${prometheus_firehose_client} \
+  --secret ${prometheus_firehose_secret} \
   --authorized_grant_types client_credentials,refresh_token \
   --authorities doppler.firehose || true #ignore errors
 
 echo "Creating Prometheus CF User..."
-uaac user add prometheus-cf --password ${prometheus_secret}  --emails prometheus-cf || true #ignore errors
-uaac member add cloud_controller.admin prometheus-cf || true #ignore errors
+uaac user add ${prometheus_cf_username} --password ${prometheus_cf_password}  --emails prometheus-cf || true #ignore errors
+uaac member add cloud_controller.admin ${prometheus_cf_username} || true #ignore errors
 
 echo "Getting BOSH director IP..."
 director_id=$($CURL --path=/api/v0/deployed/products | jq -r ".[].guid" | grep p-bosh)
@@ -43,9 +43,9 @@ $uaa_admin_password
 EOF
 
 echo "Creating BOSH UAA Prometheus creds"
-uaac client add prometheus-bosh \
-  --name prometheus-bosh \
-  --secret ${prometheus_secret} \
+uaac client add ${prometheus_bosh_client} \
+  --name ${prometheus_bosh_client} \
+  --secret ${prometheus_bosh_secret} \
   --authorized_grant_types client_credentials,refresh_token \
   --authorities bosh.read \
   --scope bosh.read  || true #ignore errors

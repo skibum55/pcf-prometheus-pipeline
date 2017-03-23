@@ -23,7 +23,12 @@ It can target an ops manager BOSH director or a standalone one.
 
   - `github_token`: A github token
   - `pcf_sys_domain`: PCF System Domain
-  - `prometheus_secret`: Secret for the prometheus UAA client
+  - `prometheus_bosh_client`: prometheus BOSH UAA client name
+  - `prometheus_bosh_secret`: Secret for the prometheus BOSH UAA client
+  - `prometheus_firehose_client`: Prometheus CF UAA client name
+  - `prometheus_firehose_secret`: Secret for the prometheus CF UAA client
+  - `prometheus_cf_username`: Username for the prometheus CF
+  - `prometheus_cf_password`: Password for the prometheus CF user
   - `deploy_azs`: Deployment AZs (Array)
   - `deploy_network`: Deployment Network
   - `deploy_vm_password`: SHA of the VM Password

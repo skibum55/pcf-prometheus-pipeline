@@ -52,7 +52,12 @@ jobs:
       pcf_opsman_admin_username: {{pcf_opsman_admin_username}}
       pcf_opsman_admin_password: {{pcf_opsman_admin_password}}
       pcf_sys_domain: {{pcf_sys_domain}}
-      prometheus_secret: {{prometheus_secret}}
+      prometheus_bosh_client: {{prometheus_bosh_client}}
+      prometheus_bosh_secret: {{prometheus_bosh_secret}}
+      prometheus_firehose_client: {{prometheus_firehose_client}}
+      prometheus_firehose_secret: {{prometheus_firehose_secret}}
+      prometheus_cf_username: {{prometheus_cf_username}}
+      prometheus_cf_password: {{prometheus_cf_password}}
 
 - name: upload-release
   plan:
@@ -77,7 +82,12 @@ jobs:
     file: pcf-prometheus-git/tasks/deploy.yml
     params:
       opsman_url: {{opsman_url}}
-      prometheus_secret: {{prometheus_secret}}
+      prometheus_bosh_client: {{prometheus_bosh_client}}
+      prometheus_bosh_secret: {{prometheus_bosh_secret}}
+      prometheus_firehose_client: {{prometheus_firehose_client}}
+      prometheus_firehose_secret: {{prometheus_firehose_secret}}
+      prometheus_cf_username: {{prometheus_cf_username}}
+      prometheus_cf_password: {{prometheus_cf_password}}
       azs: {{deploy_azs}}
       network_name: {{deploy_network}}
       vm_password: {{deploy_vm_password}}
