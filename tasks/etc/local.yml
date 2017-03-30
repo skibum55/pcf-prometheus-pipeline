@@ -53,6 +53,7 @@ cf_exporter:
     api_url: https://api.${pcf_sys_domain}
     username: ${prometheus_cf_username}
     password: ${prometheus_cf_password}
+    deployment_name: ${prometheus_cf_deployment_name}
   skip_ssl_verify: true
 #
 # mysqld_exporter:
