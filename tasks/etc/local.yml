@@ -4,7 +4,7 @@ azs: ${azs}
 network_name: ${network_name}
 
 nginx:
-  vm_type: micro
+  vm_type: ${vm_type_micro}
   vm_password: ${vm_password}
   static_ips: ${nginx_ip}
   local_properties:
@@ -14,16 +14,16 @@ nginx:
       http_port: 80
 
 grafana:
-  vm_type: micro
+  vm_type: ${vm_type_micro}
   vm_password: ${vm_password}
   persistent_disk_type: 1024
   admin_password: ${grafana_admin_password}
 alertmanager:
-  vm_type: micro
+  vm_type: ${vm_type_micro}
   vm_password: ${vm_password}
   persistent_disk_type: 1024
 prometheus:
-  vm_type: small
+  vm_type: ${vm_type_small}
   vm_password: ${vm_password}
   persistent_disk_type: 5120
 

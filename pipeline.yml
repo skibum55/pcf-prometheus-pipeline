@@ -88,9 +88,12 @@ jobs:
       prometheus_firehose_secret: {{prometheus_firehose_secret}}
       prometheus_cf_username: {{prometheus_cf_username}}
       prometheus_cf_password: {{prometheus_cf_password}}
+      prometheus_cf_deployment_name: {{prometheus_cf_deployment_name}}
       azs: {{deploy_azs}}
       network_name: {{deploy_network}}
       vm_password: {{deploy_vm_password}}
+      vm_type_micro: {{deploy_vm_type_micro}}
+      vm_type_small: {{deploy_vm_type_small}}
       nginx_ip: {{deploy_nginx_ip}}
       pcf_sys_domain: {{pcf_sys_domain}}
       pcf_ert_domain: {{pcf_ert_domain}}

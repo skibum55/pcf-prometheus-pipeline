@@ -12,15 +12,17 @@ inputs:
 - name: pcf-prometheus-manifest
 
 params:
-  prometheus_bosh_client: 
-  prometheus_bosh_secret: 
-  prometheus_firehose_client: 
-  prometheus_firehose_secret: 
-  prometheus_cf_username: 
-  prometheus_cf_password: 
+  prometheus_bosh_client:
+  prometheus_bosh_secret:
+  prometheus_firehose_client:
+  prometheus_firehose_secret:
+  prometheus_cf_username:
+  prometheus_cf_password:
   azs:
   network_name:
   vm_password:
+  vm_type_micro:
+  vm_type_small:
   nginx_ip:
   pcf_sys_domain:
   pcf_ert_domain:
