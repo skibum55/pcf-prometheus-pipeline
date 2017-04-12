@@ -16,16 +16,16 @@ nginx:
 grafana:
   vm_type: ${vm_type_micro}
   vm_password: ${vm_password}
-  persistent_disk_type: 1024
+  persistent_disk_type: default
   admin_password: ${grafana_admin_password}
 alertmanager:
   vm_type: ${vm_type_micro}
   vm_password: ${vm_password}
-  persistent_disk_type: 1024
+  persistent_disk_type: default
 prometheus:
   vm_type: ${vm_type_small}
   vm_password: ${vm_password}
-  persistent_disk_type: 5120
+  persistent_disk_type: default
 
 bosh_exporter:
   bosh:
