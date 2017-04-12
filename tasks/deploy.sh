@@ -5,11 +5,7 @@ CURL="om --target https://${opsman_url} -k \
   --password $pcf_opsman_admin_password \
   curl"
 
-if [[ -s om-bosh-creds/bosh-ca.pem ]]; then
-  bosh -n --ca-cert om-bosh-creds/bosh-ca.pem target `cat om-bosh-creds/director_ip`
-else
-  bosh -n target `cat om-bosh-creds/director_ip`
-fi
+bosh -n target `cat om-bosh-creds/director_ip`
 
 BOSH_USERNAME=$(cat om-bosh-creds/bosh-username)
 BOSH_PASSWORD=$(cat om-bosh-creds/bosh-pass)
