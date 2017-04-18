@@ -18,6 +18,7 @@ grafana:
   vm_password: ${vm_password}
   persistent_disk_type: 1024
   admin_password: ${grafana_admin_password}
+  anonymous_enabled: ${grafana_anonymous_enabled}
 alertmanager:
   vm_type: ${vm_type_micro}
   vm_password: ${vm_password}
