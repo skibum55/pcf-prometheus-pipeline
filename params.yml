@@ -38,3 +38,5 @@ nats_username: ""
 nats_password: ""
 
 grafana_admin_password: grafana!
+granfan_anonymous_enabled: false
+
